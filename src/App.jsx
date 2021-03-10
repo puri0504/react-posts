@@ -1,9 +1,12 @@
-import './App.css';
+import Menu from  './components/Menu';
+import Post from  './components/Post';
+import './styles.css';
 
 function App() {
   return (
     <div className="App">
-      App
+      <Menu />
+      <Post/>
     </div>
   );
 }
