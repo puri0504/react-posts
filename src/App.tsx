@@ -1,18 +1,10 @@
-import { Row, Col } from 'antd';
-import Menu from  './components/Menu';
-import Post from  './components/Post';
+import * as React from 'react';
+import Posts from  './components/Posts';
 import './styles.css';
 
 function App() {
   return (
-    <Row className="App">
-      <Col span={8}>
-        <Menu />
-      </Col>
-      <Col span={16}>
-        <Post/>
-      </Col>
-    </Row>
+    <Posts />
   );
 }
 

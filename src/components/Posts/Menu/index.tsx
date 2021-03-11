@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {useEffect, useState} from 'react';
-import * as API from '../../api'
+import * as API from '../../../api'
 import './styles.css';
 
-function Menu() {
+function Menu(): JSX.Element {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {

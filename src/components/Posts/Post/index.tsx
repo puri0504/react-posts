@@ -1,6 +1,6 @@
 import './styles.css';
 
-function Post() {
+function Post(): JSX.Element {
   return (
     <div className="post">
       Post
