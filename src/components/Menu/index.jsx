@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {useEffect, useState} from 'react';
 import * as API from '../../api'
 import './styles.css';
@@ -7,17 +8,20 @@ function Menu() {
 
   useEffect(() => {
     async function getPosts() {
-      const {data} = await API.getPosts();
-      return data;
+      const res = await API.getPosts();
+      setPosts(res);
     }
 
-    const response = getPosts();
-    setPosts(response);
+    getPosts();
   }, []);
 
   return (
     <div className="menu">
-      Menu
+      {
+        posts.map(post => (
+          <div>{post.title}</div>
+        ))
+      }
     </div>
   );
 }

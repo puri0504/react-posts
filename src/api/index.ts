@@ -8,7 +8,6 @@ const base = axios.create({
 export function getPosts(): Promise<string[]> {
     return base.get('/posts')
         .then(function (response) {
-            console.log(response)
             return response.data;
         })
         .catch(function (error) {
