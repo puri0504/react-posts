@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { Menu } from 'antd';
 import * as API from '../../../api'
 import {Post} from '../../../api'
