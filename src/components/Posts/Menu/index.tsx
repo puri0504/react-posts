@@ -20,7 +20,7 @@ function Menu(): JSX.Element {
         <div className="menu">
             {
                 posts.map(post => (
-                    <div>{post.title}</div>
+                    <div key={post.id}>{post.title}</div>
                 ))
             }
         </div>
