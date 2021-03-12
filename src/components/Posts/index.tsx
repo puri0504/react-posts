@@ -5,10 +5,10 @@ import Post from './Post';
 function Posts() {
     return (
         <Row className="App">
-            <Col span={8}>
+            <Col span={6}>
                 <PostList id={2}/>
             </Col>
-            <Col span={16}>
+            <Col span={18}>
                 <Post id={2}/>
             </Col>
         </Row>
