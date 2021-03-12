@@ -6,7 +6,7 @@ function Posts() {
   return (
       <Row className="App">
           <Col span={8}>
-              <Menu />
+              <Menu id={2} />
           </Col>
           <Col span={16}>
               <Post id={2} />
