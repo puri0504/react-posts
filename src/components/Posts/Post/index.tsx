@@ -1,4 +1,5 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
+import { PageHeader, Layout  } from 'antd';
 import * as API from '../../../api';
 import { Post } from '../../../api';
 import './styles.css';
@@ -9,6 +10,7 @@ interface Props {
 
 function PostDetails(props: Props): JSX.Element {
     const [post, setPost] = useState<Post>();
+    const { Header, Content } = Layout;
 
     useEffect(() => {
         async function getPost() {
@@ -20,9 +22,10 @@ function PostDetails(props: Props): JSX.Element {
     }, []);
 
     return (
-        <div className="post">
-            {post?.title}
-        </div>
+        <Layout className="post">
+            {/*<Header>{post?.title}</Header>*/}
+            <Content className="post-content">{post?.body}</Content>
+        </Layout>
     );
 }
 
