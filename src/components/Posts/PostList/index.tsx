@@ -6,7 +6,8 @@ import {Post} from '../../../api'
 import './styles.css';
 
 interface Props {
-    id: number
+    id?: number
+    select: () => void
 }
 
 function PostList(props: Props): JSX.Element {
@@ -21,8 +22,10 @@ function PostList(props: Props): JSX.Element {
         getPosts();
     }, []);
 
+    const selectedKeys = props.id ? [props?.id.toString()] : [];
+
     return (
-        <Menu className="menu" selectedKeys={[props.id.toString()]}>
+        <Menu className="menu" selectedKeys={selectedKeys} onClick={props.select}>
             {
                 posts.map(post => (
                     <Menu.Item key={post.id}>{post.title}</Menu.Item>
