@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {useEffect, useState} from 'react';
 import * as API from '../../../api'
+import { Post } from '../../../api'
 import './styles.css';
 
 function Menu(): JSX.Element {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     async function getPosts() {
