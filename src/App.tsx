@@ -1,11 +1,11 @@
 import * as React from 'react';
-import Posts from  './components/Posts';
+import Posts from './components/Posts';
 import './styles.css';
 
 function App() {
-  return (
-    <Posts />
-  );
+    return (
+        <Posts/>
+    );
 }
 
 export default App;
