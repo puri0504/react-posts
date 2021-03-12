@@ -1,11 +1,29 @@
+import {useEffect, useState} from 'react';
+import * as API from '../../../api';
+import { Post } from '../../../api';
 import './styles.css';
 
-function Post(): JSX.Element {
-  return (
-    <div className="post">
-      Post
-    </div>
-  );
+interface Props {
+    id: number;
 }
 
-export default Post;
+function PostDetails(props: Props): JSX.Element {
+    const [post, setPost] = useState<Post>();
+
+    useEffect(() => {
+        async function getPost() {
+            const res = await API.getPostDetails(props.id);
+            setPost(res);
+        }
+
+        getPost();
+    }, []);
+
+    return (
+        <div className="post">
+            {post?.title}
+        </div>
+    );
+}
+
+export default PostDetails;

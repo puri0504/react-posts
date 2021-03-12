@@ -9,7 +9,7 @@ function Posts() {
               <Menu />
           </Col>
           <Col span={16}>
-              <Post/>
+              <Post id={2} />
           </Col>
       </Row>
   );
