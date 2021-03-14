@@ -7,7 +7,7 @@ import Post from './Post';
 function Posts() {
     const [selectedPost, selectPost] = useState<number>();
     const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-width: 1224px)'
+        query: '(min-width: 1000px)'
     });
 
     const postList = <PostList id={selectedPost} select={selectPost}/>;
