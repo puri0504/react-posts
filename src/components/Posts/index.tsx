@@ -8,7 +8,7 @@ import Post from './Post';
 import './styles.css';
 
 function Posts() {
-    const [selectedPost, selectPost] = useState<number>();
+    const [selectedPost, selectPost] = useState<number | null>(null);
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1000px)'
     });
@@ -32,7 +32,7 @@ function Posts() {
                 <Col span={24}>
                     {!selectedPost && postList}
                     {selectedPost && (
-                        <Button type="link" shape="round" size="large">
+                        <Button type="link" shape="round" size="large" onClick={() => selectPost(null)}>
                             <ArrowLeftOutlined className="backBtn-icon" />
                         </Button>
                     )}

@@ -7,7 +7,7 @@ import {Post} from '../../../api'
 import './styles.css';
 
 interface Props {
-    id?: number
+    id?: number | null
     select: (id: number) => void
 }
 
