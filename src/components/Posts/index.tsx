@@ -10,14 +10,27 @@ function Posts() {
         query: '(min-width: 1224px)'
     });
 
+    const postList = <PostList id={selectedPost} select={selectPost}/>;
+    const post = selectedPost && <Post id={selectedPost}/>;
+
     return (
         <Row className="App">
-            <Col span={6}>
-                {isDesktopOrLaptop && <PostList id={selectedPost} select={selectPost}/>}
-            </Col>
-            <Col span={18}>
-                {selectedPost && <Post id={selectedPost}/>}
-            </Col>
+            {isDesktopOrLaptop && (
+                <>
+                    <Col span={6}>
+                        {postList}
+                    </Col>
+                    <Col span={18}>
+                        {post}
+                    </Col>
+                </>
+            )}
+            {!isDesktopOrLaptop && (
+                <Col span={24}>
+                    {!selectedPost && postList}
+                    {post}
+                </Col>
+            )}
         </Row>
     );
 }
