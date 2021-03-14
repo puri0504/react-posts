@@ -1,15 +1,19 @@
+import {useState} from 'react';
 import {Col, Row} from 'antd';
+import { useMediaQuery } from 'react-responsive';
 import PostList from './PostList';
 import Post from './Post';
-import {useState} from "react";
 
 function Posts() {
     const [selectedPost, selectPost] = useState<number>();
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 1224px)'
+    });
 
     return (
         <Row className="App">
             <Col span={6}>
-                <PostList id={selectedPost} select={() => selectPost}/>
+                {isDesktopOrLaptop && <PostList id={selectedPost} select={() => selectPost}/>}
             </Col>
             <Col span={18}>
                 {selectedPost && <Post id={selectedPost}/>}
