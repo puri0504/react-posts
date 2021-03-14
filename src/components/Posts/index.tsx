@@ -13,7 +13,7 @@ function Posts() {
     return (
         <Row className="App">
             <Col span={6}>
-                {isDesktopOrLaptop && <PostList id={selectedPost} select={() => selectPost}/>}
+                {isDesktopOrLaptop && <PostList id={selectedPost} select={selectPost}/>}
             </Col>
             <Col span={18}>
                 {selectedPost && <Post id={selectedPost}/>}

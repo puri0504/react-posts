@@ -19,7 +19,7 @@ function PostDetails(props: Props): JSX.Element {
         }
 
         getPost();
-    }, []);
+    }, [props.id]);
 
     return (
         <Layout className="post">
