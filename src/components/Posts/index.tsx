@@ -9,6 +9,8 @@ import * as API from '../../api';
 import { Post } from '../../types';
 import styles from './Posts.module.css';
 
+const breakpoints = require('../../constants/breakpoints');
+
 function Posts() {
     const [posts, setPosts] = useState<Post[]>([]);
     const [selectedPost, selectPost] = useState<number | null>(null);
@@ -22,7 +24,7 @@ function Posts() {
         getPosts();
     }, []);
 
-    const isMobile = useMediaQuery({ maxWidth: 641 });
+    const isMobile = useMediaQuery({ maxWidth: breakpoints.mobile });
     const goBack = useCallback(() => { selectPost(null) }, []);
 
     const getSelectedPost = useMemo(() => posts.find(post => post.id === selectedPost), [posts, selectedPost]);
