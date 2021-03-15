@@ -1,20 +1,33 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Col, Row} from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import { Button } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import PostList from './PostList';
-import Post from './PostDetails';
+import PostDetails from './PostDetails';
+import * as API from '../../api';
+import { Post } from '../../api'
 import styles from './Posts.module.css';
 
 function Posts() {
+    const [posts, setPosts] = useState<Post[]>([]);
     const [selectedPost, selectPost] = useState<number | null>(null);
+
+    useEffect(() => {
+        async function getPosts() {
+            const res = await API.getPosts();
+            setPosts(res);
+        }
+
+        getPosts();
+    }, []);
+
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1000px)'
     });
 
-    const postList = <PostList id={selectedPost} select={selectPost}/>;
-    const post = selectedPost && <Post id={selectedPost}/>;
+    const postList = <PostList id={selectedPost} select={selectPost} posts={posts}/>;
+    const post = selectedPost && <PostDetails id={selectedPost}/>;
 
     return (
         <Row className={styles.posts}>
