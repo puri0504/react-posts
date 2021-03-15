@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Posts from './components/Posts';
+import Posts from './Posts';
 import './styles.css';
 
 function App() {
