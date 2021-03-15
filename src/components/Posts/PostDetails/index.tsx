@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Layout  } from 'antd';
 import * as API from '../../../api';
 import { Post } from '../../../types';
+import Comments from './Comments';
 import styles from './PostDetails.module.css';
 
 interface Props {
@@ -27,7 +28,12 @@ function PostDetails(props: Props): JSX.Element {
             <Header>
                 <h2 className={styles.heading}>{post?.title}</h2>
             </Header>
-            <Content className={styles.content}>{post?.body}</Content>
+            <Content className={styles.content}>
+                <div>
+                    {post?.body}
+                </div>
+                <Comments id={props.id} />
+            </Content>
         </Layout>
     );
 }
