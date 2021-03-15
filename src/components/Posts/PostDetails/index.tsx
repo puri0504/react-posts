@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PageHeader, Layout  } from 'antd';
+import { Layout  } from 'antd';
 import { Post } from '../../../types';
 import styles from './PostDetails.module.css';
 
@@ -9,22 +9,15 @@ interface Props {
 }
 
 function PostDetails(props: Props): JSX.Element {
-    const [post, setPost] = useState<Post>();
     const { Header, Content } = Layout;
-
-    useEffect(() => {
-        async function getPost() {
-            const res = await API.getPostDetails(props.id);
-            setPost(res);
-        }
-
-        getPost();
-    }, [props.id]);
+    const { post } = props;
 
     return (
-        <Layout className={styles.postDetails}>
-            {/*<Header>{post?.title}</Header>*/}
-            <Content className={styles.postContent}>{post?.body}</Content>
+        <Layout className={styles.root}>
+            <Header>
+                <h2 className={styles.heading}>{post?.title}</h2>
+            </Header>
+            <Content className={styles.content}>{post?.body}</Content>
         </Layout>
     );
 }

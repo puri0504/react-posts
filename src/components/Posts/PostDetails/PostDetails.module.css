@@ -1,7 +1,11 @@
-.postDetails {
+.root {
     height: 100%;
 }
 
-.postContent {
+.heading {
+    color: #fff;
+}
+
+.content {
     margin: 50px;
 }
