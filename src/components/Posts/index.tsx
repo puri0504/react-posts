@@ -1,4 +1,5 @@
-import {useCallback, useEffect, useMemo, useState} from 'react';
+import * as React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Col, Row } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import { Button } from 'antd';
@@ -27,8 +28,7 @@ function Posts() {
     const isMobile = useMediaQuery({ maxWidth: breakpoints.mobile });
     const goBack = useCallback(() => { selectPost(null) }, []);
 
-    const getSelectedPost = useMemo(() => posts.find(post => post.id === selectedPost), [posts, selectedPost]);
-    const post = selectedPost && <PostDetails post={getSelectedPost}/>;
+    const post = selectedPost && <PostDetails id={selectedPost} />;
     const postList = <PostList id={selectedPost} select={selectPost} posts={posts}/>;
 
     return (
@@ -47,7 +47,7 @@ function Posts() {
                 <Col span={24}>
                     {!selectedPost && postList}
                     {selectedPost && (
-                        <Button type="link" shape="round" size="large" onClick={goBack}>
+                        <Button type="link" size="large" onClick={goBack}>
                             <ArrowLeftOutlined className={styles.backBtnIcon} />
                         </Button>
                     )}
