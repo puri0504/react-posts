@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react';
 import { MenuClickEventHandler } from 'rc-menu/lib/interface'
 import { Menu } from 'antd';
 import * as API from '../../../api'
-import {Post} from '../../../api'
-import './styles.css';
+import { Post } from '../../../api'
 
 interface Props {
     id?: number | null
@@ -29,7 +28,7 @@ function PostList(props: Props): JSX.Element {
     };
 
     return (
-        <Menu className="menu" selectedKeys={selectedKeys} onClick={select}>
+        <Menu selectedKeys={selectedKeys} onClick={select}>
             {
                 posts.map(post => (
                     <Menu.Item key={post.id}>{post.title}</Menu.Item>

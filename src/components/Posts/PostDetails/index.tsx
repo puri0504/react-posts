@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { PageHeader, Layout  } from 'antd';
 import * as API from '../../../api';
 import { Post } from '../../../api';
-import './styles.css';
+import styles from './PostDetails.module.css';
 
 interface Props {
     id: number;
@@ -22,9 +22,9 @@ function PostDetails(props: Props): JSX.Element {
     }, [props.id]);
 
     return (
-        <Layout className="post-details">
+        <Layout className={styles.postDetails}>
             {/*<Header>{post?.title}</Header>*/}
-            <Content className="post-content">{post?.body}</Content>
+            <Content className={styles.postContent}>{post?.body}</Content>
         </Layout>
     );
 }

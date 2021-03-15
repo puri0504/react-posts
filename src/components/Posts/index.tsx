@@ -5,7 +5,7 @@ import { Button } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import PostList from './PostList';
 import Post from './PostDetails';
-import './styles.css';
+import styles from './Posts.module.css';
 
 function Posts() {
     const [selectedPost, selectPost] = useState<number | null>(null);
@@ -17,7 +17,7 @@ function Posts() {
     const post = selectedPost && <Post id={selectedPost}/>;
 
     return (
-        <Row className="posts">
+        <Row className={styles.posts}>
             {isDesktopOrLaptop && (
                 <>
                     <Col span={6}>
@@ -33,7 +33,7 @@ function Posts() {
                     {!selectedPost && postList}
                     {selectedPost && (
                         <Button type="link" shape="round" size="large" onClick={() => selectPost(null)}>
-                            <ArrowLeftOutlined className="backBtn-icon" />
+                            <ArrowLeftOutlined className={styles.backBtnIcon} />
                         </Button>
                     )}
                     {post}
