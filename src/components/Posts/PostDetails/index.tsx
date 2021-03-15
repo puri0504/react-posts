@@ -4,8 +4,7 @@ import { Post } from '../../../types';
 import styles from './PostDetails.module.css';
 
 interface Props {
-    id: number;
-    post: Post;
+    post?: Post;
 }
 
 function PostDetails(props: Props): JSX.Element {

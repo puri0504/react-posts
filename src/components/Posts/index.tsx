@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import {useCallback, useEffect, useMemo, useState} from 'react';
 import { Col, Row } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import { Button } from 'antd';
@@ -6,8 +6,8 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 import PostList from './PostList';
 import PostDetails from './PostDetails';
 import * as API from '../../api';
-import styles from './Posts.module.css';
 import { Post } from '../../types';
+import styles from './Posts.module.css';
 
 function Posts() {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -25,8 +25,9 @@ function Posts() {
     const isMobile = useMediaQuery({ maxWidth: 641 });
     const goBack = useCallback(() => { selectPost(null) }, []);
 
+    const getSelectedPost = useMemo(() => posts.find(post => post.id === selectedPost), [posts, selectedPost]);
+    const post = selectedPost && <PostDetails post={getSelectedPost}/>;
     const postList = <PostList id={selectedPost} select={selectPost} posts={posts}/>;
-    const post = selectedPost && <PostDetails id={selectedPost} post={posts[1]}/>;
 
     return (
         <Row className={styles.root}>
