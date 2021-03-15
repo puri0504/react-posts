@@ -15,13 +15,3 @@ export function getPosts(): Promise<Post[]> {
             console.log(error);
         });
 }
-
-export function getPostDetails(id: number): Promise<Post>{
-    return base.get(`/posts/${id}`)
-        .then(function (response) {
-            return response.data;
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
