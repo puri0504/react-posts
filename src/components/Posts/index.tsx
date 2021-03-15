@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Button } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import PostList from './PostList';
-import Post from './Post';
+import Post from './PostDetails';
 import './styles.css';
 
 function Posts() {

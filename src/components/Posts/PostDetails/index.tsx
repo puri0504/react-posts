@@ -22,7 +22,7 @@ function PostDetails(props: Props): JSX.Element {
     }, [props.id]);
 
     return (
-        <Layout className="post">
+        <Layout className="post-details">
             {/*<Header>{post?.title}</Header>*/}
             <Content className="post-content">{post?.body}</Content>
         </Layout>
