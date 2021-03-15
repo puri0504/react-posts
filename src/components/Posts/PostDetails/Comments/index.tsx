@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import * as API from '../../../../api';
 import { PostComments as CommentsType } from '../../../../types';
 import Comments from '../../../Comments';
+import styles from './Comments.module.css';
 
 interface Props {
     id: number;
@@ -21,7 +22,7 @@ function PostComments(props: Props): JSX.Element {
     }, [props.id]);
 
     return (
-        <div>
+        <div className={styles.root}>
             {comments && (
                 <>
                     <h3>Comments:</h3>
