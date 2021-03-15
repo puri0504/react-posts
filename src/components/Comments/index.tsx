@@ -11,7 +11,7 @@ function Comments(props: Props): JSX.Element {
         <List>
             {
                 props.comments?.map(comment => (
-                    <List.Item key={comment.id}>
+                    <List.Item key={comment.id} style={{ display: "block" }}>
                         <h4>{comment.name}:</h4>
                         <div>{comment.body}</div>
                     </List.Item>

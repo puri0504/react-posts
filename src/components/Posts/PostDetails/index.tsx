@@ -25,8 +25,8 @@ function PostDetails(props: Props): JSX.Element {
 
     return (
         <Layout className={styles.root}>
-            <Header>
-                <h2 className={styles.heading}>{post?.title}</h2>
+            <Header style={{height: "auto"}}>
+                <h3 className={styles.heading}>{post?.title}</h3>
             </Header>
             <Content className={styles.content}>
                 <div>
