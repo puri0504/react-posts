@@ -22,16 +22,14 @@ function Posts() {
         getPosts();
     }, []);
 
-    const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-width: 1000px)'
-    });
+    const isMobile = useMediaQuery({ maxWidth: 641 });
 
     const postList = <PostList id={selectedPost} select={selectPost} posts={posts}/>;
-    const post = selectedPost && <PostDetails id={selectedPost}/>;
+    const post = selectedPost && <PostDetails id={selectedPost} post={posts[1]}/>;
 
     return (
         <Row className={styles.posts}>
-            {isDesktopOrLaptop && (
+            {!isMobile && (
                 <>
                     <Col span={6}>
                         {postList}
@@ -41,7 +39,7 @@ function Posts() {
                     </Col>
                 </>
             )}
-            {!isDesktopOrLaptop && (
+            {isMobile && (
                 <Col span={24}>
                     {!selectedPost && postList}
                     {selectedPost && (
