@@ -1,3 +1,7 @@
+.posts {
+    height: 100vh;
+}
+
 .backBtn-icon path {
     fill: #000;
 }

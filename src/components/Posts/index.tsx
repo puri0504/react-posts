@@ -17,7 +17,7 @@ function Posts() {
     const post = selectedPost && <Post id={selectedPost}/>;
 
     return (
-        <Row>
+        <Row className="posts">
             {isDesktopOrLaptop && (
                 <>
                     <Col span={6}>
