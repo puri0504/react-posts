@@ -28,7 +28,7 @@ function Posts() {
     const post = selectedPost && <PostDetails id={selectedPost} post={posts[1]}/>;
 
     return (
-        <Row className={styles.posts}>
+        <Row className={styles.root}>
             {!isMobile && (
                 <>
                     <Col span={6}>
