@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import * as API from '../../../../api';
-import { PostComments as Comments } from '../../../../types';
+import { PostComments as CommentsType } from '../../../../types';
+import Comments from '../../../Comments';
 
 interface Props {
     id: number;
 }
 
 function PostComments(props: Props): JSX.Element {
-    const [comments, setComments] = useState<Comments[]>();
+    const [comments, setComments] = useState<CommentsType[]>();
 
     useEffect(() => {
         async function getPost() {
@@ -20,13 +21,14 @@ function PostComments(props: Props): JSX.Element {
     }, [props.id]);
 
     return (
-        <ul>
-            {
-               comments?.map(comment => (
-                   <li key={comment.id}>{comment}</li>
-               ))
-            }
-        </ul>
+        <div>
+            {comments && (
+                <>
+                    <h3>Comments:</h3>
+                    <Comments comments={comments}/>
+                </>
+            )}
+        </div>
     );
 }
 
