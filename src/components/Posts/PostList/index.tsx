@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { MenuClickEventHandler } from 'rc-menu/lib/interface'
 import { Menu } from 'antd';
-import { Post } from '../../../api'
+import { Post } from '../../../types';
 
 interface Props {
     id?: number | null;

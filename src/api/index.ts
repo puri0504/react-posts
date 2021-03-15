@@ -1,11 +1,5 @@
 import axios from 'axios';
-
-export type Post = {
-    id: number;
-    userId: number;
-    title: string;
-    body: string;
-}
+import { Post } from '../types';
 
 const base = axios.create({
     baseURL: 'https://jsonplaceholder.typicode.com',

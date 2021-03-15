@@ -6,8 +6,8 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 import PostList from './PostList';
 import PostDetails from './PostDetails';
 import * as API from '../../api';
-import { Post } from '../../api'
 import styles from './Posts.module.css';
+import { Post } from '../../types';
 
 function Posts() {
     const [posts, setPosts] = useState<Post[]>([]);

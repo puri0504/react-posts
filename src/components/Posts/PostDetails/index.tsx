@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import * as React from 'react';
 import { PageHeader, Layout  } from 'antd';
-import * as API from '../../../api';
-import { Post } from '../../../api';
+import { Post } from '../../../types';
 import styles from './PostDetails.module.css';
 
 interface Props {
     id: number;
+    post: Post;
 }
 
 function PostDetails(props: Props): JSX.Element {
